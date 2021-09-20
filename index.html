@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link href="css/style.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Welcome to KokoaTalk</title>
 </head>
 <body>
@@ -30,16 +31,29 @@
   </header>
 
   <form action="friends.html" method="get" id="login-form">
-    <input name="username" type="text" placeholder="Email or phone number" />
-    <input name="password" type="password" placeholder="Password" />
-    <input type="submit" value="Log In"/>
-    <input type="button" value="Sign Up" />
+    <input name="username" id="username" type="text" placeholder="Email or phone number" />
+    <input name="password" id="password" type="password" placeholder="Password" />
+    <input type="submit" id="login" value="Log In"/>
+    <input type="button" id="signup" value="Sign Up" />
     <a href="#">Find Kokoa Account or Password</a>
   </form>
 
   <div id="no-mobile">
     <span>Your screen is too bigㅠㅠ</span>
   </div>
+
+  <script type="text/javascript">
+    $(function() {
+      $('#login').click(function() {
+        $username = $('#username').val();
+        $password = $('#password').val();
+        if ( $username == '' || $password == '' ) {
+          alert('Please Input content.');
+          return false;
+        } else { return true; }
+      });
+    });
+  </script>
 
 </body>
 </html>
